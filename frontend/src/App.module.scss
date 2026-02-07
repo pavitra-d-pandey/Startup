@@ -1,0 +1,342 @@
+.appShell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid var(--neutral-100);
+  backdrop-filter: blur(10px);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-3);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: 18px;
+}
+
+.logoMark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--brand-primary);
+  color: var(--brand-on);
+  font-size: 15px;
+}
+
+.navLinks {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.navLinks a {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--neutral-700);
+  font-weight: 500;
+}
+
+.navLinks a:hover {
+  background: var(--neutral-100);
+}
+
+.ctaLink {
+  background: var(--brand-primary);
+  color: var(--brand-on) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.signIn {
+  border: 1px solid var(--neutral-100);
+}
+
+.hero {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(11, 95, 255, 0.18), transparent 45%),
+    radial-gradient(circle at 90% 20%, rgba(0, 191, 166, 0.16), transparent 40%),
+    linear-gradient(120deg, rgba(0, 0, 0, 0.02), transparent 55%);
+  padding: 72px 0;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.buttonPrimary {
+  background: var(--brand-primary);
+  color: var(--brand-on);
+  border: none;
+  padding: 14px 22px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.buttonOutline {
+  background: transparent;
+  color: var(--brand-primary);
+  border: 1px solid var(--brand-primary);
+  padding: 14px 22px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.buttonPrimary:hover,
+.buttonOutline:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sectionTitle::before {
+  content: "";
+  width: 18px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--brand-accent);
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-3);
+}
+
+.featureCard {
+  background: var(--neutral-0);
+  border: 1px solid var(--neutral-100);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.statRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.statCard {
+  background: var(--neutral-0);
+  border: 1px solid var(--neutral-100);
+  border-radius: var(--radius-md);
+  padding: var(--space-2);
+}
+
+.fadeUp {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.delay1 { animation-delay: 0.1s; }
+.delay2 { animation-delay: 0.2s; }
+.delay3 { animation-delay: 0.3s; }
+.delay4 { animation-delay: 0.4s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer {
+  margin-top: auto;
+  background: var(--neutral-0);
+  border-top: 1px solid var(--neutral-100);
+  padding: 56px 0;
+}
+
+.dashboardLayout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: var(--neutral-0);
+  border-right: 1px solid var(--neutral-100);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sidebar nav a {
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  color: var(--neutral-700);
+}
+
+.sidebar nav a:hover {
+  background: var(--neutral-100);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--neutral-100);
+  background: var(--neutral-0);
+  position: relative;
+}
+
+.content {
+  padding: var(--space-3);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.stateBox {
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--neutral-0);
+  border: 1px dashed var(--neutral-100);
+}
+
+.loadingState,
+.errorState,
+.emptyState {
+  padding: var(--space-3);
+  background: var(--neutral-0);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--neutral-100);
+}
+
+.tenantBadge {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.tenantBadge img {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+}
+
+.tenantName {
+  font-weight: 600;
+}
+
+.search {
+  width: 320px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--neutral-100);
+}
+
+.topbarActions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.iconButton {
+  background: var(--neutral-0);
+  border: 1px solid var(--neutral-100);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+}
+
+.userMenu {
+  background: var(--brand-primary);
+  color: var(--brand-on);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 56px;
+  right: 120px;
+  width: 220px;
+  background: var(--neutral-0);
+  border: 1px solid var(--neutral-100);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+  box-shadow: var(--shadow-sm);
+}
+
+.dropdownRight {
+  position: absolute;
+  top: 56px;
+  right: 16px;
+  width: 220px;
+  background: var(--neutral-0);
+  border: 1px solid var(--neutral-100);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 900px) {
+  .dashboardLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .search {
+    width: 180px;
+  }
+
+  .navLinks {
+    display: none;
+  }
+}
