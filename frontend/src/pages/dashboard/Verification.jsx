@@ -49,6 +49,10 @@ export default function Verification() {
   return (
     <div className={styles.page}>
       <div className={styles.stateBox}>
+        <div className="mono">Simulation Mode</div>
+        <p className="muted">Verification steps are simulated; statuses update instantly for demo.</p>
+      </div>
+      <div className={styles.stateBox}>
         <h2>Phone Numbers</h2>
         <button onClick={() => addItem('phone', '+1-212-555-0101')}>Request Verification</button>
         <ul>

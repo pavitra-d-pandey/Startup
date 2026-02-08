@@ -6,7 +6,8 @@ export default function Docs() {
     <MarketingLayout>
       <section className="page-section">
         <div className="container">
-          <h1>Docs (Teaser)</h1>
+          <div className="mono">Docs (Teaser)</div>
+          <h1>Integration Map</h1>
           <div style={{ display: 'grid', gap: 16 }}>
             <div className="card">API Overview</div>
             <div className="card">Tenant Routing & Security</div>

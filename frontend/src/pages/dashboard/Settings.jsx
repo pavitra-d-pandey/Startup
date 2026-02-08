@@ -20,6 +20,10 @@ export default function Settings() {
   return (
     <div className={styles.page}>
       <div className={styles.stateBox}>
+        <div className="mono">Simulation Mode</div>
+        <p className="muted">Brand theme updates preview instantly in the demo dashboard.</p>
+      </div>
+      <div className={styles.stateBox}>
         <h2>Branding Theme</h2>
         <label>
           Primary

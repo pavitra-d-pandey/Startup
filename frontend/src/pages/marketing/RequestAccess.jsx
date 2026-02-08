@@ -35,6 +35,7 @@ export default function RequestAccess() {
     <MarketingLayout>
       <section className="page-section">
         <div className="container">
+          <div className="mono">Hackathon Demo</div>
           <h1>Request Access</h1>
           {state === 'success' ? (
             <div className="card">Thanks! Your request has been submitted.</div>

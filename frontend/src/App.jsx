@@ -23,6 +23,7 @@ import Reputation from './pages/dashboard/Reputation';
 import Logs from './pages/dashboard/Logs';
 import Users from './pages/dashboard/Users';
 import Settings from './pages/dashboard/Settings';
+import AiGuard from './pages/dashboard/AiGuard';
 
 function ProtectedRoute({ children }) {
   const auth = useAuth();
@@ -88,6 +89,7 @@ function DashboardWrapper({ children }) {
           <a href={`/dashboard/${tenantSlug}/assets`}>Assets</a>
           <a href={`/dashboard/${tenantSlug}/verification`}>Verification</a>
           <a href={`/dashboard/${tenantSlug}/reputation`}>Reputation</a>
+          <a href={`/dashboard/${tenantSlug}/ai-guard`}>AI Guard</a>
           <a href={`/dashboard/${tenantSlug}/logs`}>Logs</a>
           <a href={`/dashboard/${tenantSlug}/users`}>Users</a>
           <a href={`/dashboard/${tenantSlug}/settings`}>Settings</a>
@@ -161,6 +163,7 @@ export default function App() {
                       <Route path="assets" element={<Assets />} />
                       <Route path="verification" element={<Verification />} />
                       <Route path="reputation" element={<Reputation />} />
+                      <Route path="ai-guard" element={<AiGuard />} />
                       <Route path="logs" element={<Logs />} />
                       <Route path="users" element={<Users />} />
                       <Route path="settings" element={<Settings />} />

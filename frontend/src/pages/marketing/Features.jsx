@@ -7,7 +7,12 @@ export default function Features() {
     <MarketingLayout>
       <section className="page-section">
         <div className="container">
+          <div className={styles.kicker}>Product Modules</div>
           <h1>Features</h1>
+          <p className="muted">
+            Built to simulate real carrier and inbox feedback loops, so teams can prototype trust workflows
+            without hooking production providers.
+          </p>
           <div className={styles.featureGrid}>
             <div className={styles.featureCard}>Voice Verification: caller ID profiles and verified numbers</div>
             <div className={styles.featureCard}>SMS Identity: sender approval and spam scoring</div>

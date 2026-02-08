@@ -18,6 +18,7 @@ const {
 } = require('../controllers/verification.controller');
 const { listReputationController, recheckController } = require('../controllers/reputation.controller');
 const { listLogsController } = require('../controllers/logs.controller');
+const { scoreController, trainController, statusController, feedbackController } = require('../controllers/ai.controller');
 const {
   listUsersController,
   inviteUserController,
@@ -99,6 +100,27 @@ router.get(
   '/dashboard/:tenantSlug/logs',
   gatekeeper([PERMISSIONS.LOG_VIEW]),
   listLogsController
+);
+
+router.post(
+  '/dashboard/:tenantSlug/ai/score',
+  gatekeeper([PERMISSIONS.TENANT_READ]),
+  scoreController
+);
+router.post(
+  '/dashboard/:tenantSlug/ai/train',
+  gatekeeper([PERMISSIONS.TENANT_UPDATE]),
+  trainController
+);
+router.get(
+  '/dashboard/:tenantSlug/ai/status',
+  gatekeeper([PERMISSIONS.TENANT_READ]),
+  statusController
+);
+router.post(
+  '/dashboard/:tenantSlug/ai/feedback',
+  gatekeeper([PERMISSIONS.TENANT_UPDATE]),
+  feedbackController
 );
 
 router.get(

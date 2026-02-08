@@ -23,6 +23,10 @@ export default function Overview() {
   return (
     <div className={styles.page}>
       <div className={styles.stateBox}>
+        <div className="mono">Simulation Mode</div>
+        <p className="muted">Synthetic signals emulate carrier + inbox feedback loops for demo purposes.</p>
+      </div>
+      <div className={styles.stateBox}>
         <h2>Verification Summary</h2>
         <p>Phone verified: {data?.verification?.phone?.verified} / {data?.verification?.phone?.total}</p>
         <p>Email verified: {data?.verification?.email?.verified} / {data?.verification?.email?.total}</p>

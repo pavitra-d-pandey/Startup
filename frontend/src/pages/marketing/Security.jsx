@@ -7,7 +7,11 @@ export default function Security() {
     <MarketingLayout>
       <section className="page-section">
         <div className="container">
+          <div className={styles.kicker}>Defense Layer</div>
           <h1>Security</h1>
+          <p className="muted">
+            Hackathon demo with simulated signals, but the security model mirrors real production controls.
+          </p>
           <div className={styles.featureGrid}>
             <div className={styles.featureCard}>Tenant isolation enforced at middleware + database scope</div>
             <div className={styles.featureCard}>RBAC with permission checks on every route</div>

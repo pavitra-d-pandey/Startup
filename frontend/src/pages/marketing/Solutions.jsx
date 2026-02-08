@@ -7,7 +7,12 @@ export default function Solutions() {
     <MarketingLayout>
       <section className="page-section">
         <div className="container">
+          <div className={styles.kicker}>Use Cases</div>
           <h1>Solutions</h1>
+          <p className="muted">
+            Where trust signals matter most: regulated industries, high-volume support, and
+            marketplace communications.
+          </p>
           <div className={styles.featureGrid}>
             <div className={styles.featureCard}>Support Centers: verified outbound and inbound trust</div>
             <div className={styles.featureCard}>BFSI: compliance-ready identity and audit trails</div>

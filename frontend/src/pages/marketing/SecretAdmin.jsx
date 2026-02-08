@@ -70,6 +70,7 @@ export default function SecretAdmin() {
     <MarketingLayout>
       <section className="page-section">
         <div className="container">
+          <div className="mono">Simulated Backoffice</div>
           <h1>Secret Admin</h1>
           {!token ? (
             <form onSubmit={login} className="card" style={{ display: 'grid', gap: 12, maxWidth: 420 }}>

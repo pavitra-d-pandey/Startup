@@ -7,19 +7,21 @@ export default function Pricing() {
     <MarketingLayout>
       <section className="page-section">
         <div className="container">
+          <div className={styles.kicker}>Prototype Tiers</div>
           <h1>Pricing</h1>
+          <p className="muted">Hackathon-friendly bundles to demo verification, reputation, and AI guardrails.</p>
           <div className={styles.featureGrid}>
             <div className={styles.featureCard}>
               <h3>Starter</h3>
-              <p>Verified basics for growing teams.</p>
+              <p className="muted">Verified basics for growing teams.</p>
             </div>
             <div className={styles.featureCard}>
               <h3>Growth</h3>
-              <p>Advanced reputation monitoring and logs.</p>
+              <p className="muted">Advanced reputation monitoring and logs.</p>
             </div>
             <div className={styles.featureCard}>
               <h3>Enterprise</h3>
-              <p>Custom governance, SLAs, and compliance.</p>
+              <p className="muted">Custom governance, SLAs, and compliance.</p>
             </div>
           </div>
           <div style={{ marginTop: 24 }}>

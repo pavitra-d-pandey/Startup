@@ -75,6 +75,10 @@ export default function Users() {
   return (
     <div className={styles.page}>
       <div className={styles.stateBox}>
+        <div className="mono">Simulation Mode</div>
+        <p className="muted">User invites generate temporary credentials for demo.</p>
+      </div>
+      <div className={styles.stateBox}>
         <h2>Users</h2>
         <button onClick={invite}>Invite User</button>
         {message && <div style={{ color: 'green' }}>{message}</div>}

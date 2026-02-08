@@ -34,6 +34,10 @@ export default function Logs() {
   return (
     <div className={styles.page}>
       <div className={styles.stateBox}>
+        <div className="mono">Simulation Mode</div>
+        <p className="muted">Logs demonstrate ingestion patterns; live provider hooks not connected.</p>
+      </div>
+      <div className={styles.stateBox}>
         <h2>Communication Logs</h2>
         <label>
           Filter by channel

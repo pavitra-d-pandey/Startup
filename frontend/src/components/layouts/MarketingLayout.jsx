@@ -8,8 +8,8 @@ export default function MarketingLayout({ children }) {
       <header className={styles.header}>
         <div className={`${styles.navbar} container`}>
           <Link to="/" className={styles.logo}>
-            <span className={styles.logoMark}>SI</span>
-            <span>SimpleID</span>
+            <span className={styles.logoMark}>SB</span>
+            <span>SentinelBrand</span>
           </Link>
           <nav className={styles.navLinks} aria-label="Main">
             <Link to="/features">Product</Link>
@@ -17,6 +17,7 @@ export default function MarketingLayout({ children }) {
             <Link to="/pricing">Pricing</Link>
             <Link to="/security">Security</Link>
             <Link to="/docs">Docs</Link>
+            <span className={styles.badge}>Demo Mode · Simulated Data</span>
             <Link to="/request-access" className={styles.ctaLink}>
               Request Access
             </Link>

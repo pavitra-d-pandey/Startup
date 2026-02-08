@@ -6,6 +6,7 @@ export default function Contact() {
     <MarketingLayout>
       <section className="page-section">
         <div className="container">
+          <div className="mono">Get in touch</div>
           <h1>Contact</h1>
           <div className="card" style={{ display: 'grid', gap: 12 }}>
             <input placeholder="Name" />

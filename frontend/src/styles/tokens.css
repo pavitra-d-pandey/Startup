@@ -1,15 +1,17 @@
 :root {
   /* Typography */
-  --font-heading: "Suisse Int'l", "IBM Plex Sans", sans-serif;
-  --font-body: "Inter Tight", "IBM Plex Sans", sans-serif;
+  --font-heading: "Space Grotesk", "DM Sans", sans-serif;
+  --font-body: "Plus Jakarta Sans", "DM Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --font-size-xs: 12px;
   --font-size-sm: 14px;
   --font-size-md: 16px;
   --font-size-lg: 20px;
   --font-size-xl: 28px;
-  --font-size-2xl: 36px;
-  --line-height-tight: 1.2;
-  --line-height-normal: 1.5;
+  --font-size-2xl: 40px;
+  --font-size-3xl: 56px;
+  --line-height-tight: 1.12;
+  --line-height-normal: 1.55;
 
   /* Spacing (8px grid) */
   --space-1: 8px;
@@ -20,39 +22,55 @@
   --space-6: 48px;
 
   /* Radius */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.12);
+  --shadow-sm: 0 12px 24px rgba(12, 16, 28, 0.1);
+  --shadow-md: 0 20px 40px rgba(12, 16, 28, 0.18);
 
   /* Neutrals */
   --neutral-0: #ffffff;
-  --neutral-50: #f6f7fb;
-  --neutral-100: #eef1f7;
+  --neutral-50: #f3f4f6;
+  --neutral-100: #e5e7eb;
   --neutral-500: #6b7280;
-  --neutral-700: #374151;
-  --neutral-900: #111827;
+  --neutral-700: #111827;
+  --neutral-900: #0b0f16;
+
+  /* Surfaces */
+  --canvas: #f7f2ea;
+  --ink: #0b0f16;
+  --fog: #f2ebe3;
+  --sand: #efe7dd;
+  --edge: rgba(11, 15, 22, 0.14);
 
   /* Semantic */
-  --success: #16a34a;
-  --warning: #f59e0b;
-  --danger: #dc2626;
-  --info: #0ea5e9;
+  --success: #1f9d5a;
+  --warning: #f08c28;
+  --danger: #e23b3b;
+  --info: #1d9bf0;
+
+  /* Accent */
+  --electric: #0b3c5d;
+  --flare: #ff7a59;
+  --signal: #22d3ee;
 
   /* Tenant-overridable */
-  --brand-primary: #0b5fff;
-  --brand-accent: #00bfa6;
+  --brand-primary: #0b3c5d;
+  --brand-accent: #ff7a59;
   --brand-on: #ffffff;
 }
 
 [data-theme="dark"] {
-  --neutral-0: #0b0f19;
-  --neutral-50: #121826;
-  --neutral-100: #1a2233;
+  --neutral-0: #0f141d;
+  --neutral-50: #161b26;
+  --neutral-100: #1d2432;
   --neutral-500: #9aa4b2;
-  --neutral-700: #c7d0dd;
-  --neutral-900: #f4f7fb;
+  --neutral-700: #dde2ea;
+  --neutral-900: #f5f7fb;
+  --canvas: #0f141d;
+  --fog: #161b26;
+  --sand: #1b2230;
+  --edge: rgba(255, 255, 255, 0.12);
 }

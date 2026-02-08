@@ -52,6 +52,10 @@ export default function Assets() {
   return (
     <div className={styles.page}>
       <div className={styles.stateBox}>
+        <div className="mono">Simulation Mode</div>
+        <p className="muted">Uploads are mocked to show versioning and rollback behaviors.</p>
+      </div>
+      <div className={styles.stateBox}>
         <h2>Upload Brand Logo</h2>
         <button onClick={addMockAsset}>Simulate Upload</button>
       </div>

@@ -37,6 +37,10 @@ export default function Reputation() {
   return (
     <div className={styles.page}>
       <div className={styles.stateBox}>
+        <div className="mono">Simulation Mode</div>
+        <p className="muted">Flags are randomized to mimic carrier reputation checks.</p>
+      </div>
+      <div className={styles.stateBox}>
         <h2>Flagged Numbers</h2>
         <button onClick={recheck}>Recheck Now</button>
         {flags.length === 0 ? (

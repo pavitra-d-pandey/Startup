@@ -27,6 +27,7 @@ export default function SignIn() {
     <MarketingLayout>
       <section className="page-section">
         <div className="container">
+          <div className="mono">Demo Mode</div>
           <h1>Sign In</h1>
           <form onSubmit={submit} className="card" style={{ display: 'grid', gap: 12, maxWidth: 420 }}>
             <input
