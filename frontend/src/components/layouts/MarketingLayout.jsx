@@ -9,7 +9,7 @@ export default function MarketingLayout({ children }) {
         <div className={`${styles.navbar} container`}>
           <Link to="/" className={styles.logo}>
             <span className={styles.logoMark}>SB</span>
-            <span>SentinelBrand</span>
+            <span>SimpleID</span>
           </Link>
           <nav className={styles.navLinks} aria-label="Main">
             <Link to="/features">Product</Link>

@@ -12,7 +12,7 @@ async function seed() {
     process.exit(0);
   }
 
-  const superAdminPassword = 'SuperAdmin123!';
+  const superAdminPassword = 'Arnav@19';
   const passwordHash = await bcrypt.hash(superAdminPassword, 10);
   const tenant = await Tenant.create({
     name: 'SimpleID',
@@ -23,8 +23,8 @@ async function seed() {
 
   const superAdmin = await User.create({
     tenantId: tenant._id,
-    email: 'superadmin@sentinelbrand.cloud',
-    name: 'Super Admin',
+    email: 'pavitradurgeshpandey@gmail.com',
+    name: 'Sudo Admin',
     role: 'SUPER_ADMIN',
     passwordHash,
   });

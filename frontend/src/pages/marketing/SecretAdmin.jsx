@@ -6,10 +6,11 @@ const ADMIN_TOKEN_KEY = 'sb_admin_token';
 
 export default function SecretAdmin() {
   const [password, setPassword] = useState('');
-  const [token, setToken] = useState(() => localStorage.getItem(ADMIN_TOKEN_KEY));
+  const [token, setToken] = useState(null);
   const [requests, setRequests] = useState([]);
   const [error, setError] = useState(null);
   const [message, setMessage] = useState(null);
+  const [usingStored, setUsingStored] = useState(false);
 
   const login = async (e) => {
     e.preventDefault();
@@ -32,7 +33,14 @@ export default function SecretAdmin() {
       headers: { Authorization: `Bearer ${token}` },
     });
     const json = await res.json();
-    if (!res.ok) throw new Error(json?.error?.message || 'Failed to load requests');
+    if (!res.ok) {
+      if (res.status === 401) {
+        localStorage.removeItem(ADMIN_TOKEN_KEY);
+        setToken(null);
+        throw new Error('Admin session expired. Please sign in again.');
+      }
+      throw new Error(json?.error?.message || 'Failed to load requests');
+    }
     setRequests(json.data || []);
   };
 
@@ -73,21 +81,41 @@ export default function SecretAdmin() {
           <div className="mono">Simulated Backoffice</div>
           <h1>Secret Admin</h1>
           {!token ? (
-            <form onSubmit={login} className="card" style={{ display: 'grid', gap: 12, maxWidth: 420 }}>
-              <input
-                placeholder="Admin password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-              <button type="submit">Enter</button>
+            <div className="card" style={{ display: 'grid', gap: 12, maxWidth: 420 }}>
+              {!usingStored && localStorage.getItem(ADMIN_TOKEN_KEY) && (
+                <button
+                  onClick={() => {
+                    setToken(localStorage.getItem(ADMIN_TOKEN_KEY));
+                    setUsingStored(true);
+                  }}
+                >
+                  Use Saved Session
+                </button>
+              )}
+              <form onSubmit={login} style={{ display: 'grid', gap: 12 }}>
+                <input
+                  placeholder="Admin password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <button type="submit">Enter</button>
+              </form>
               {error && <div style={{ color: 'red' }}>{error}</div>}
-            </form>
+            </div>
           ) : (
             <div className="card" style={{ display: 'grid', gap: 12 }}>
               <h3>Access Requests</h3>
               {message && <div style={{ color: 'green' }}>{message}</div>}
+              <button
+                onClick={() => {
+                  localStorage.removeItem(ADMIN_TOKEN_KEY);
+                  setToken(null);
+                }}
+              >
+                Sign Out
+              </button>
               {requests.length === 0 ? (
                 <div>No requests</div>
               ) : (
