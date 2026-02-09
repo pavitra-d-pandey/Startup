@@ -147,6 +147,13 @@ export default function AiGuard() {
           <div className="muted">Run a score to see risk, decision, and recommendations.</div>
         ) : (
           <div style={{ display: 'grid', gap: 12 }}>
+            <div className="card" style={{ borderColor: '#16a34a', background: 'rgba(22, 163, 74, 0.08)' }}>
+              <div className="mono">AI Summary</div>
+              <div style={{ fontWeight: 700 }}>Decision: {result.decision.toUpperCase()} · Risk {result.score}/100</div>
+              <div className="muted">
+                {result.recommendations?.[0] || 'Looks safe. Proceed with current message.'}
+              </div>
+            </div>
             <div className="card">
               <div className="mono">Risk Score</div>
               <h3>{result.score} / 100</h3>
