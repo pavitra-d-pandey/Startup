@@ -35,7 +35,15 @@ export default function AiGuard() {
           recipientStats,
         }),
       });
-      setResult(data);
+      const safe = {
+        score: typeof data?.score === 'number' ? data.score : 0,
+        band: data?.band || 'low',
+        decision: data?.decision || 'allow',
+        recommendations: Array.isArray(data?.recommendations) ? data.recommendations : [],
+        features: data?.features || null,
+        model: data?.model || null,
+      };
+      setResult(safe);
     } finally {
       setLoading(false);
     }
@@ -149,7 +157,9 @@ export default function AiGuard() {
           <div style={{ display: 'grid', gap: 12 }}>
             <div className="card" style={{ borderColor: '#16a34a', background: 'rgba(22, 163, 74, 0.08)' }}>
               <div className="mono">AI Summary</div>
-              <div style={{ fontWeight: 700 }}>Decision: {result.decision.toUpperCase()} · Risk {result.score}/100</div>
+              <div style={{ fontWeight: 700 }}>
+                Decision: {(result.decision || 'allow').toUpperCase()} · Risk {result.score}/100
+              </div>
               <div className="muted">
                 {result.recommendations?.[0] || 'Looks safe. Proceed with current message.'}
               </div>
