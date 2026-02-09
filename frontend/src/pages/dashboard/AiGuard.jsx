@@ -18,11 +18,13 @@ export default function AiGuard() {
   const [feedbackLabel, setFeedbackLabel] = useState('0');
   const [feedbackNote, setFeedbackNote] = useState('');
   const [feedbackState, setFeedbackState] = useState(null);
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [training, setTraining] = useState(false);
 
   const score = async () => {
     setLoading(true);
+    setError(null);
     try {
       const data = await apiFetch(`/dashboard/${tenantSlug}/ai/score`, {
         method: 'POST',
@@ -152,11 +154,15 @@ export default function AiGuard() {
             </div>
             <div className="card">
               <div className="mono">Recommendations</div>
-              <ul>
-                {result.recommendations.map((tip, idx) => (
-                  <li key={idx}>{tip}</li>
-                ))}
-              </ul>
+              {Array.isArray(result.recommendations) ? (
+                <ul>
+                  {result.recommendations.map((tip, idx) => (
+                    <li key={idx}>{tip}</li>
+                  ))}
+                </ul>
+              ) : (
+                <div className="muted">No recommendations returned.</div>
+              )}
             </div>
             <div className="card" style={{ display: 'grid', gap: 10 }}>
               <div className="mono">Feedback Loop</div>
@@ -184,6 +190,7 @@ export default function AiGuard() {
             </div>
           </div>
         )}
+        {error && <div className="muted">{error}</div>}
       </div>
 
       <div className={styles.stateBox}>
