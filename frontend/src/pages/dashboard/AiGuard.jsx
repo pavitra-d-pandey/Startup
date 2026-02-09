@@ -19,6 +19,7 @@ export default function AiGuard() {
   const [feedbackNote, setFeedbackNote] = useState('');
   const [feedbackState, setFeedbackState] = useState(null);
   const [error, setError] = useState(null);
+  const [raw, setRaw] = useState(null);
   const [loading, setLoading] = useState(false);
   const [training, setTraining] = useState(false);
 
@@ -35,6 +36,7 @@ export default function AiGuard() {
           recipientStats,
         }),
       });
+      setRaw(data);
       const safe = {
         score: typeof data?.score === 'number' ? data.score : 0,
         band: data?.band || 'low',
@@ -208,6 +210,15 @@ export default function AiGuard() {
           </div>
         )}
         {error && <div className="muted">{error}</div>}
+      </div>
+
+      <div className={styles.stateBox}>
+        <h2>Raw Response</h2>
+        {!raw ? (
+          <div className="muted">No raw response yet.</div>
+        ) : (
+          <pre style={{ whiteSpace: 'pre-wrap', margin: 0 }}>{JSON.stringify(raw, null, 2)}</pre>
+        )}
       </div>
 
       <div className={styles.stateBox}>

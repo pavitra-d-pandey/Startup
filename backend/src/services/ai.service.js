@@ -75,11 +75,21 @@ function clamp(n, min, max) {
   return Math.max(min, Math.min(max, n));
 }
 
+function normalizeWeights(weights = {}) {
+  const merged = { ...DEFAULT_WEIGHTS, ...weights };
+  for (const key of Object.keys(DEFAULT_WEIGHTS)) {
+    if (typeof merged[key] !== 'number' || Number.isNaN(merged[key])) {
+      merged[key] = DEFAULT_WEIGHTS[key];
+    }
+  }
+  return merged;
+}
+
 async function loadModel() {
   if (MODEL_STATE.loaded) return MODEL_STATE;
   const existing = await AiModel.findOne({ key: MODEL_KEY });
   if (existing) {
-    MODEL_STATE.weights = existing.weights || { ...DEFAULT_WEIGHTS };
+    MODEL_STATE.weights = normalizeWeights(existing.weights);
     MODEL_STATE.trainedAt = existing.trainedAt;
     MODEL_STATE.samples = existing.samples || 0;
     MODEL_STATE.version = existing.version || 1;
@@ -89,7 +99,7 @@ async function loadModel() {
       version: MODEL_STATE.version,
       samples: MODEL_STATE.samples,
       trainedAt: MODEL_STATE.trainedAt,
-      weights: MODEL_STATE.weights,
+      weights: normalizeWeights(MODEL_STATE.weights),
     });
   }
   MODEL_STATE.loaded = true;
@@ -104,7 +114,7 @@ async function persistModel() {
         version: MODEL_STATE.version,
         samples: MODEL_STATE.samples,
         trainedAt: MODEL_STATE.trainedAt,
-        weights: MODEL_STATE.weights,
+        weights: normalizeWeights(MODEL_STATE.weights),
       },
     }
   );
@@ -190,6 +200,7 @@ function riskBand(score) {
 
 async function scoreMessage(payload) {
   await loadModel();
+  MODEL_STATE.weights = normalizeWeights(MODEL_STATE.weights);
   const features = extractFeatures(payload);
   const probability = scoreWithWeights(features, MODEL_STATE.weights);
   const score = Math.round(probability * 100);
